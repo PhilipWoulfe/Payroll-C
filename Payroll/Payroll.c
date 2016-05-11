@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 	*/
 	
 	// Resize command window
-	system("MODE 72,50");
+	system("MODE 73,50");
 
 	clearScreen();
 	displayHeader();
@@ -140,8 +140,8 @@ int main(int argc, char* argv[])
 					break;
 				
 				default:
-					printText("\nInvalid selection...");
-					printText("\nPlease select an option from the menu [1-7]: ");
+					printText("\n  Invalid selection...");
+					printText("\n  Please select an option from the menu [1-7]: ");
 
 			}
 
@@ -195,21 +195,21 @@ int main(int argc, char* argv[])
 
 /* Displays the header for the program */
 void displayHeader(void) {
-	printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
-	printf(" *     _      _   _____   _     ___                                  *\n");
-	printf(" *    | |    | | |  _  | | |   |  _|                                 *\n");
-	printf(" *    | | /\\ | | | | | | | |   | |_                                  *\n");
-	printf(" *    | |//\\\\| | | |_| | | |_  |  _|                                 *\n");
-	printf(" *    |__/  \\__| |_____| |___| |_|                                   *\n");
-	printf(" *                                                                   *\n");
-	printf(" *             ____     ___   __   __  ____    _____   _     _   TM  *\n");
-	printf(" *            |  _ \\   / _ \\  \\ \\ / / |  _ \\  |  _  | | |   | |      *\n");
-	printf(" *            | |_| | | |_| |  \\ v /  | |_| | | | | | | |   | |      *\n");
-	printf(" *            |  __/  |  _  |   | |   |  _ <  | |_| | | |_  | |_     *\n");
-	printf(" *            |_|     |_| |_|   |_|   |_| |_| |_____| |___| |___|    *\n");
-	printf(" *                                                                   *\n");
-	printf(" *                               © Copyright Wolf Accounting 2016    *\n");
-	printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n");
+	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	printf("  *     _      _   _____   _     ___                                  *\n");
+	printf("  *    | |    | | |  _  | | |   |  _|                                 *\n");
+	printf("  *    | | /\\ | | | | | | | |   | |_                                  *\n");
+	printf("  *    | |//\\\\| | | |_| | | |_  |  _|                                 *\n");
+	printf("  *    |__/  \\__| |_____| |___| |_|                                   *\n");
+	printf("  *                                                                   *\n");
+	printf("  *             ____     ___   __   __  ____    _____   _     _   TM  *\n");
+	printf("  *            |  _ \\   / _ \\  \\ \\ / / |  _ \\  |  _  | | |   | |      *\n");
+	printf("  *            | |_| | | |_| |  \\ v /  | |_| | | | | | | |   | |      *\n");
+	printf("  *            |  __/  |  _  |   | |   |  _ <  | |_| | | |_  | |_     *\n");
+	printf("  *            |_|     |_| |_|   |_|   |_| |_| |_____| |___| |___|    *\n");
+	printf("  *                                                                   *\n");
+	printf("  *                               © Copyright Wolf Accounting 2016    *\n");
+	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n");
 
 }
 
@@ -220,6 +220,9 @@ void clearScreen(void) {
 
 /* Prints text to console 1 character at a time */
 void printText(char *text) {
+
+	// Formatting
+	printf("  ");
 
 	for (int i = 0; text[i] != '\0'; i++) {
 		printf("%c", text[i]);
@@ -321,7 +324,7 @@ void displayMenu(void) {
 	printText("6. Calculate Payroll for this week\n");
 	printText("7. Quit\n\n");
 	printText("Please select an option from the menu [1-7]: ");
-
+	
 }
 
 /* Display Employees */
@@ -330,20 +333,20 @@ void displayEmployees(Employee_t employees[], int arrayLength) {
 	clearScreen();
 	displayHeader();
 
-	printf(" _____________________________________________________________________\n");
-	printf("|                                                                     |\n");
-	printf("|      Wolf Payroll - Employee Payroll for week ending **/**/****     |\n");
-	printf("| " ANSI_UNDERLINED_PRE "                                                                   " ANSI_UNDERLINED_POST " |\n");
-	printf("| " ANSI_UNDERLINED_PRE "Number | Name                     | Department          |Pay Rate  " ANSI_UNDERLINED_POST " |\n");
+	printf("   ___________________________________________________________________\n");
+	printf("  |                                                                   |\n");
+	printf("  |     Wolf Payroll - Employee Payroll for week ending **/**/****    |\n");
+	printf("  | " ANSI_UNDERLINED_PRE "                                                                 " ANSI_UNDERLINED_POST " |\n");
+	printf("  | " ANSI_UNDERLINED_PRE "Number | Name                   | Department          |Pay Rate  " ANSI_UNDERLINED_POST " |\n");
 	//printf("|________|__________________________|_____________________|___________|\n");
 
 	for (int i = 1; i <= arrayLength; i++) {
 		//printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		
-		printf("|                                                                     |\n");
+		printf("  |                                                                   |\n");
 		
 	}
-	printf("|_____________________________________________________________________|\n");
+	printf("  |___________________________________________________________________|\n");
 	printText("Press any key to continue...");
 	getch();
 }
