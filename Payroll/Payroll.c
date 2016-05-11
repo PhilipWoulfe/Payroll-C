@@ -22,16 +22,16 @@
 
 /* Declare enums */
 typedef enum {
-	HR,
-	IT,
-	PRODUCTION,
-	SALES_AND_MARKETING
+	HR = 1,
+	IT = 2,
+	PRODUCTION = 3,
+	SALES_AND_MARKETING = 4
 } Department_t;
 
 typedef enum {
-	ASSOCIATE,
-	SENIOR,
-	MANAGER,
+	ASSOCIATE = 1,
+	SENIOR = 2,
+	MANAGER = 3,
 } Rate_t;
 
 /* create employe data type */
@@ -340,10 +340,58 @@ void displayEmployees(Employee_t employees[], int arrayLength) {
 	printf("  | " ANSI_UNDERLINED_PRE "Number | Name                   | Department          |Pay Rate  " ANSI_UNDERLINED_POST " |\n");
 	//printf("|________|__________________________|_____________________|___________|\n");
 
-	for (int i = 1; i <= arrayLength; i++) {
-		//printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+
+	for (int i = 0; i < arrayLength; i++) {
+
+		// Skip former employees
+		if (!employees[i].currentEmployee) {
+			continue;
+		}
+
+		//printf(employees[i--].name);
+		char* name = malloc(sizeof(employees[i].name[0]));
+		strcpy(name, employees[i].name);
+		//printf(name);
+		//getchar();
+		char* dept = "";
+		char* rate = "";
+
+		// Set Department
+		switch (employees[i].dept) {
+			case 1:
+				dept = "HR";
+				break;
+			case 2:
+				dept = "IT";
+				break;
+			case 3:
+				dept = "Production";
+				break;
+			case 4:
+				dept = "Sales & Marketing";
+				break;
+			default:
+				printText("How the hell did you manage that?");
+		}
+
+		// Set pay rate
+		switch (employees[i].rate) {
+			case 1:
+				rate = "Associate";
+				break;
+			case 2:
+				rate = "Senior";
+				break;
+			case 3:
+				rate = "Manager";
+				break;
+			default:
+				printText("Seriously, how are you doing this?");
+		}
 		
-		printf("  |                                                                   |\n");
+		//printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		//printf("  | Number | Name                   | Department          | Pay Rate  |\n");
+		printf("  | %6d | %-22s | %-19s | %-9s |\n", i + 1, name, dept, rate);
 		
 	}
 	printf("  |___________________________________________________________________|\n");
