@@ -1,4 +1,4 @@
-/**
+﻿/**
 * CompanyPayroll
 *
 * FIT ICTAP Procedural Programming Assignment
@@ -10,6 +10,8 @@
 */
 
 #define _CRT_SECURE_NO_DEPRECATE
+#define ANSI_UNDERLINED_PRE  "\033[4m"
+#define ANSI_UNDERLINED_POST "\033[0m"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -60,7 +62,7 @@ int loadEmployees(Employee_t employees[], int arrayLength);
 const char* getfield(char* line, int num);
 
 /* Display Employees */
-void displayEmployees(Employee_t employees[]);
+void displayEmployees(Employee_t employees[], int arrayLength);
 
 /* Create a new employee*/
 void newEmployee(char *name, Department_t dept, Rate_t rate);
@@ -75,11 +77,11 @@ void changeRate(char *name, Rate_t rate);
 void setCurrentEmployee(char *name, bool b);
 
 /* Save current employees to file */
-void saveEmployeesToFile(Employee_t empArr[]);
+void saveEmployeesToFile(Employee_t empArr[], int arrayLength);
 
 /* Processes wages for employees */
-//void processWages(Employee_t empArr[]);
-void processWages(); //TODO Reimplement
+void processWages(Employee_t empArr[], int arrayLength);
+//void processWages(); //TODO Reimplement
 
 int main(int argc, char* argv[])
 {
@@ -91,7 +93,8 @@ int main(int argc, char* argv[])
 	}
 
 	// declare variables
-	char input;
+	char input = 0;
+	
 	Employee_t employees[50];
 	if (NULL == employees) {
 		fprintf(stderr, "malloc failed\n");
@@ -102,6 +105,8 @@ int main(int argc, char* argv[])
 	arrayLength = &len;
 	*/
 	
+	// Resize command window
+	system("MODE 72,50");
 
 	clearScreen();
 	displayHeader();
@@ -110,17 +115,42 @@ int main(int argc, char* argv[])
 	printf(employees[0].name);
 	printf(arrayLength);
 	getchar();*/
-	displayMenu();
 
 	//printf((*employees_p[0]).name);
 	// loop through menu until quit
 	do {
+		
+		displayMenu();
 
-		input = getchar();
+		// Loop until valid input
+		do {
 
-		switch (input) {
+			input = getch();
+
+			switch (input) {
+				case '1':
+					displayEmployees(employees, arrayLength);
+					break;
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+					break;
+				
+				default:
+					printText("\nInvalid selection...");
+					printText("\nPlease select an option from the menu [1-7]: ");
+
+			}
+
+		} while (input < '1' || input > '7');
+
+		/*switch (input) {
 		case '1':
-			//displayEmployees();
+			displayEmployees(employees, arrayLength);
+
 			break;
 
 		case '2':
@@ -140,7 +170,7 @@ int main(int argc, char* argv[])
 			break;
 
 		case '6':
-			//void processWages(Employee_t empArr[])
+			processWages(employees, arrayLength);
 			break;
 
 		case '7':
@@ -151,13 +181,13 @@ int main(int argc, char* argv[])
 				continue;
 
 			printf("\nUnrecognised Command - Please enter value from 1-7:");
-		}
+		}*/
 
 	} while (input != '7');
 
 	//processWages();
 
-	printText("Exiting program...\n");
+	printText("\nExiting program...\n");
 
 	// that's all folks
 	return 0;
@@ -165,21 +195,22 @@ int main(int argc, char* argv[])
 
 /* Displays the header for the program */
 void displayHeader(void) {
-	printf("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n");
-	printf("*      _        _   _______   __       _____                         *\n");
-	printf("*     | |  __  | | |   _   | |  |     |  ___|                        *\n");
-	printf("*     | | /  \\ | | |  | |  | |  |     | |_                           *\n");
-	printf("*     | |/ /\\ \\| | |  |_|  | |  |___  |  _|                          *\n");
-	printf("*     |___/  \\___| |_______| |______| |_|                            *\n");
-	printf("*                                                                    *\n");
-	printf("*      _____   _____  __   __  _____   _______   __       __    TM   *\n");
-	printf("*     |  _  | |  _  | \\ \\ / / |  _  | |   _   | |  |     |  |        *\n");
-	printf("*     | |_| | | |_| |  \\   /  | |_| | |  | |  | |  |     |  |        *\n");
-	printf("*     |  ___| |  _  |   | |   |  _ <  |  |_|  | |  |___  |  |___     *\n");
-	printf("*     |_|     |_| |_|   |_|   |_| |_| |_______| |______| |______|    *\n");
-	printf("*                                                                    *\n");
-	printf("*                                � Copyright Wolf Accounting 2016    *\n");
+	printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	printf(" *     _      _   _____   _     ___                                  *\n");
+	printf(" *    | |    | | |  _  | | |   |  _|                                 *\n");
+	printf(" *    | | /\\ | | | | | | | |   | |_                                  *\n");
+	printf(" *    | |//\\\\| | | |_| | | |_  |  _|                                 *\n");
+	printf(" *    |__/  \\__| |_____| |___| |_|                                   *\n");
+	printf(" *                                                                   *\n");
+	printf(" *             ____     ___   __   __  ____    _____   _     _   TM  *\n");
+	printf(" *            |  _ \\   / _ \\  \\ \\ / / |  _ \\  |  _  | | |   | |      *\n");
+	printf(" *            | |_| | | |_| |  \\ v /  | |_| | | | | | | |   | |      *\n");
+	printf(" *            |  __/  |  _  |   | |   |  _ <  | |_| | | |_  | |_     *\n");
+	printf(" *            |_|     |_| |_|   |_|   |_| |_| |_____| |___| |___|    *\n");
+	printf(" *                                                                   *\n");
+	printf(" *                               © Copyright Wolf Accounting 2016    *\n");
 	printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n");
+
 }
 
 /* Clears the command screen */
@@ -291,6 +322,30 @@ void displayMenu(void) {
 	printText("7. Quit\n\n");
 	printText("Please select an option from the menu [1-7]: ");
 
+}
+
+/* Display Employees */
+void displayEmployees(Employee_t employees[], int arrayLength) {
+	
+	clearScreen();
+	displayHeader();
+
+	printf(" _____________________________________________________________________\n");
+	printf("|                                                                     |\n");
+	printf("|      Wolf Payroll - Employee Payroll for week ending **/**/****     |\n");
+	printf("| " ANSI_UNDERLINED_PRE "                                                                   " ANSI_UNDERLINED_POST " |\n");
+	printf("| " ANSI_UNDERLINED_PRE "Number | Name                     | Department          |Pay Rate  " ANSI_UNDERLINED_POST " |\n");
+	//printf("|________|__________________________|_____________________|___________|\n");
+
+	for (int i = 1; i <= arrayLength; i++) {
+		//printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		
+		printf("|                                                                     |\n");
+		
+	}
+	printf("|_____________________________________________________________________|\n");
+	printText("Press any key to continue...");
+	getch();
 }
 
 /* Processes wages for employees and save to file */

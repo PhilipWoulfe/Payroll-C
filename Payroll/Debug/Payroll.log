@@ -1,13 +1,15 @@
-﻿Build started 11-May-16 19:40:59.
+﻿Build started 11-May-16 22:44:32.
      1>Project "C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Payroll\Payroll.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Payroll.c
          Payroll.c
-     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(216): warning C4047: 'function' : 'size_t' differs in levels of indirection from 'char [5]'
-     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(216): warning C4024: 'malloc' : different types for formal and actual parameter 1
-     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(368): warning C4047: 'function' : 'size_t' differs in levels of indirection from 'char [5]'
-     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(368): warning C4024: 'malloc' : different types for formal and actual parameter 1
-     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(382): warning C4098: 'processWages' : 'void' function returning a value
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(128): warning C4013: 'getch' undefined; assuming extern returning int
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(247): warning C4047: 'function' : 'size_t' differs in levels of indirection from 'char [5]'
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(247): warning C4024: 'malloc' : different types for formal and actual parameter 1
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(353): warning C4026: function declared with formal parameter list
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(423): warning C4047: 'function' : 'size_t' differs in levels of indirection from 'char [5]'
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(423): warning C4024: 'malloc' : different types for formal and actual parameter 1
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(437): warning C4098: 'processWages' : 'void' function returning a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Debug\Payroll.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Debug\Payroll.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Debug\Payroll.lib" /MACHINE:X86 Debug\Payroll.obj
          Payroll.vcxproj -> C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Debug\Payroll.exe
@@ -15,4 +17,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.79
+Time Elapsed 00:00:00.71
