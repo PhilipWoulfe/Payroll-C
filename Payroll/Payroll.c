@@ -196,11 +196,11 @@ int main(int argc, char* argv[])
 /* Displays the header for the program */
 void displayHeader(void) {
 	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
-	printf("  *         _      _   _____   _     ___                                          *\n");
-	printf("  *        | |    | | |  _  | | |   |  _|                                         *\n");
-	printf("  *        | | /\\ | | | | | | | |   | |_                                          *\n");
-	printf("  *        | |//\\\\| | | |_| | | |_  |  _|                                         *\n");
-	printf("  *        |__/  \\__| |_____| |___| |_|                                           *\n");
+	printf("  *          _      _   _____   _     ___                                         *\n");
+	printf("  *         | |    | | |  _  | | |   |  _|                                        *\n");
+	printf("  *         | | /\\ | | | | | | | |   | |_                                         *\n");
+	printf("  *         | |//\\\\| | | |_| | | |_  |  _|                                        *\n");
+	printf("  *         |__/  \\__| |_____| |___| |_|                                          *\n");
 	printf("  *                                                                               *\n");
 	printf("  *                 ____     ___   __   __  ____    _____   _     _   TM          *\n");
 	printf("  *                |  _ \\   / _ \\  \\ \\ / / |  _ \\  |  _  | | |   | |              *\n");
@@ -208,7 +208,7 @@ void displayHeader(void) {
 	printf("  *                |  __/  |  _  |   | |   |  _ <  | |_| | | |_  | |_             *\n");
 	printf("  *                |_|     |_| |_|   |_|   |_| |_| |_____| |___| |___|            *\n");
 	printf("  *                                                                               *\n");
-	printf("  *                                       © Copyright Wolf Accounting 2016        *\n");
+	printf("  *                                   © Copyright Wolf Accounting 2016            *\n");
 	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 
 }
