@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 	*/
 	
 	// Resize command window
-	system("MODE 73,50");
+	system("MODE 85,50");
 
 	clearScreen();
 	displayHeader();
@@ -195,21 +195,21 @@ int main(int argc, char* argv[])
 
 /* Displays the header for the program */
 void displayHeader(void) {
-	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
-	printf("  *     _      _   _____   _     ___                                  *\n");
-	printf("  *    | |    | | |  _  | | |   |  _|                                 *\n");
-	printf("  *    | | /\\ | | | | | | | |   | |_                                  *\n");
-	printf("  *    | |//\\\\| | | |_| | | |_  |  _|                                 *\n");
-	printf("  *    |__/  \\__| |_____| |___| |_|                                   *\n");
-	printf("  *                                                                   *\n");
-	printf("  *             ____     ___   __   __  ____    _____   _     _   TM  *\n");
-	printf("  *            |  _ \\   / _ \\  \\ \\ / / |  _ \\  |  _  | | |   | |      *\n");
-	printf("  *            | |_| | | |_| |  \\ v /  | |_| | | | | | | |   | |      *\n");
-	printf("  *            |  __/  |  _  |   | |   |  _ <  | |_| | | |_  | |_     *\n");
-	printf("  *            |_|     |_| |_|   |_|   |_| |_| |_____| |___| |___|    *\n");
-	printf("  *                                                                   *\n");
-	printf("  *                               © Copyright Wolf Accounting 2016    *\n");
-	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \n");
+	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	printf("  *         _      _   _____   _     ___                                          *\n");
+	printf("  *        | |    | | |  _  | | |   |  _|                                         *\n");
+	printf("  *        | | /\\ | | | | | | | |   | |_                                          *\n");
+	printf("  *        | |//\\\\| | | |_| | | |_  |  _|                                         *\n");
+	printf("  *        |__/  \\__| |_____| |___| |_|                                           *\n");
+	printf("  *                                                                               *\n");
+	printf("  *                 ____     ___   __   __  ____    _____   _     _   TM          *\n");
+	printf("  *                |  _ \\   / _ \\  \\ \\ / / |  _ \\  |  _  | | |   | |              *\n");
+	printf("  *                | |_| | | |_| |  \\ v /  | |_| | | | | | | |   | |              *\n");
+	printf("  *                |  __/  |  _  |   | |   |  _ <  | |_| | | |_  | |_             *\n");
+	printf("  *                |_|     |_| |_|   |_|   |_| |_| |_____| |___| |___|            *\n");
+	printf("  *                                                                               *\n");
+	printf("  *                                       © Copyright Wolf Accounting 2016        *\n");
+	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 
 }
 
@@ -332,14 +332,13 @@ void displayEmployees(Employee_t employees[], int arrayLength) {
 	
 	clearScreen();
 	displayHeader();
-
-	printf("   ___________________________________________________________________\n");
-	printf("  |                                                                   |\n");
-	printf("  |     Wolf Payroll - Employee Payroll for week ending **/**/****    |\n");
-	printf("  | " ANSI_UNDERLINED_PRE "                                                                 " ANSI_UNDERLINED_POST " |\n");
-	printf("  | " ANSI_UNDERLINED_PRE "Number | Name                   | Department          |Pay Rate  " ANSI_UNDERLINED_POST " |\n");
+  //printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	printf("   _______________________________________________________________________________\n");
+	printf("  |                                                                               |\n");
+	printf("  |           Wolf Payroll - Employee Payroll for week ending **/**/****          |\n");
+	printf("  | " ANSI_UNDERLINED_PRE "                                                                             " ANSI_UNDERLINED_POST " |\n");
+	printf("  | " ANSI_UNDERLINED_PRE " # | Name                        | Department          | Pay Rate  | Current " ANSI_UNDERLINED_POST " |\n");
 	//printf("|________|__________________________|_____________________|___________|\n");
-
 
 	for (int i = 0; i < arrayLength; i++) {
 
@@ -389,12 +388,14 @@ void displayEmployees(Employee_t employees[], int arrayLength) {
 				printText("Seriously, how are you doing this?");
 		}
 		
+		bool current = employees[i].currentEmployee;
+
 		//printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		//printf("  | Number | Name                   | Department          | Pay Rate  |\n");
-		printf("  | %6d | %-22s | %-19s | %-9s |\n", i + 1, name, dept, rate);
+		printf("  | %2d | %-27s | %-19s | %-9s | %-8s |\n", i + 1, name, dept, rate, current ? "true" : "false");
 		
 	}
-	printf("  |___________________________________________________________________|\n");
+	printf("  |_______________________________________________________________________________|\n");
 	printText("Press any key to continue...");
 	getch();
 }
