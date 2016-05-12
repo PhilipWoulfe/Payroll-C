@@ -338,6 +338,7 @@ void displayEmployees(Employee_t employees[], int arrayLength) {
 	printf("  |           Wolf Payroll - Employee Payroll for week ending **/**/****          |\n");
 	printf("  | " ANSI_UNDERLINED_PRE "                                                                             " ANSI_UNDERLINED_POST " |\n");
 	printf("  | " ANSI_UNDERLINED_PRE " # | Name                        | Department          | Pay Rate  | Current " ANSI_UNDERLINED_POST " |\n");
+	printf("  |                                                                               |\n");
 	//printf("|________|__________________________|_____________________|___________|\n");
 
 	for (int i = 0; i < arrayLength; i++) {
