@@ -125,7 +125,7 @@ int main(int argc, char* argv[])
 
 	//processWages();
 
-	printText("\nExiting program...\n");
+	printText("\n  Exiting program...\n");
 
 	// that's all folks
 	return 0;

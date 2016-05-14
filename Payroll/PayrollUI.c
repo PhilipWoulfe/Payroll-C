@@ -23,6 +23,7 @@ void displayHeader(void) {
 	clearScreen();
 
 	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+	printf("  *                                                                               *\n");
 	printf("  *          _      _   _____   _     ___                                         *\n");
 	printf("  *         | |    | | |  _  | | |   |  _|                                        *\n");
 	printf("  *         | | /\\ | | | | | | | |   | |_                                         *\n");
@@ -147,7 +148,7 @@ void displayEmployees(Employee_t employees[], int arrayLength) {
 
 	}
 
-	printf("  |____|________________________________________|_____________________|___________|\n");
-	printText("Press any key to continue...");
+	printf("  |____|________________________________________|_____________________|___________|\n\n");
+	printText(" Press any key to continue...");
 	getch();
 }
