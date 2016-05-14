@@ -10,6 +10,8 @@
 */
 
 #define _CRT_SECURE_NO_DEPRECATE
+
+// used to underline text for UI 
 #define ANSI_UNDERLINED_PRE  "\033[4m"
 #define ANSI_UNDERLINED_POST "\033[0m"
 
@@ -94,7 +96,7 @@ int main(int argc, char* argv[])
 
 	// declare variables
 	char input = 0;
-	
+
 	Employee_t employees[50];
 	if (NULL == employees) {
 		fprintf(stderr, "malloc failed\n");
@@ -104,7 +106,7 @@ int main(int argc, char* argv[])
 	/*int len = 0;
 	arrayLength = &len;
 	*/
-	
+
 	// Resize command window
 	system("MODE 85,50");
 
@@ -119,7 +121,7 @@ int main(int argc, char* argv[])
 	//printf((*employees_p[0]).name);
 	// loop through menu until quit
 	do {
-		
+
 		displayMenu();
 
 		// Loop until valid input
@@ -138,7 +140,7 @@ int main(int argc, char* argv[])
 				case '6':
 				case '7':
 					break;
-				
+
 				default:
 					printText("\n  Invalid selection...");
 					printText("\n  Please select an option from the menu [1-7]: ");
@@ -280,7 +282,7 @@ int loadEmployees(Employee_t employees_p[], int arrayLength) {
 		employees_p[arrayLength].rate = atoi(getfield(_strdup(line), 3));
 		employees_p[arrayLength].currentEmployee = atoi(getfield(_strdup(line), 4));
 		//printf(employees_p[count].name);
-		
+
 		arrayLength++;
 		//printf("Field 3 would be %s\n", getfield(tmp, 1));
 		//}
@@ -324,23 +326,22 @@ void displayMenu(void) {
 	printText("6. Calculate Payroll for this week\n");
 	printText("7. Quit\n\n");
 	printText("Please select an option from the menu [1-7]: ");
-	
+
 }
 
 /* Display Employees */
 void displayEmployees(Employee_t employees[], int arrayLength) {
-	
+
 	clearScreen();
-	displayHeader();
+	displayHeader();   
   //printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	printf("   _______________________________________________________________________________\n");
 	printf("  |                                                                               |\n");
-	printf("  |           Wolf Payroll - Employee Payroll for week ending **/**/****          |\n");
+	printf("  |                    Wolf Payroll - Display Current Employees                   |\n");
 	printf("  | " ANSI_UNDERLINED_PRE "                                                                             " ANSI_UNDERLINED_POST " |\n");
-	printf("  | " ANSI_UNDERLINED_PRE " # | Name                        | Department          | Pay Rate  | Current " ANSI_UNDERLINED_POST " |\n");
-	printf("  |                                                                               |\n");
-	//printf("|________|__________________________|_____________________|___________|\n");
-
+	printf("  | " ANSI_UNDERLINED_PRE " # | Name                                   | Department          | Pay Rate " ANSI_UNDERLINED_POST " |\n");
+	printf("  |    |                                        |                     |           |\n");
+	
 	for (int i = 0; i < arrayLength; i++) {
 
 		// Skip former employees
@@ -388,22 +389,23 @@ void displayEmployees(Employee_t employees[], int arrayLength) {
 			default:
 				printText("Seriously, how are you doing this?");
 		}
-		
+
 		bool current = employees[i].currentEmployee;
 
 		//printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		//printf("  | Number | Name                   | Department          | Pay Rate  |\n");
-		printf("  | %2d | %-27s | %-19s | %-9s | %-8s |\n", i + 1, name, dept, rate, current ? "true" : "false");
-		
+		printf("  | %2d | %-38s | %-19s | %-9s |\n", i + 1, name, dept, rate, current ? "true" : "false");
+
 	}
-	printf("  |_______________________________________________________________________________|\n");
+	
+	printf("  |____|________________________________________|_____________________|___________|\n");
 	printText("Press any key to continue...");
 	getch();
 }
 
 /* Processes wages for employees and save to file */
-//void processWages(Employee_t empArr[]) { //TODO reimplement
-void processWages() {
+void processWages(Employee_t empArr[]) { //TODO reimplement
+//void processWages() {
 
 	// get date
 	time_t t = time(NULL);
@@ -457,7 +459,7 @@ void processWages() {
 	// add month
 	outfile = strcat(outfile, month);
 	outfile = strcat(outfile, "-");
-	
+
 	// add day
 	outfile = strcat(outfile, day);
 	outfile = strcat(outfile, ".csv");
