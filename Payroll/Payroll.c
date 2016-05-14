@@ -18,36 +18,9 @@
 #include <time.h>
 #include <windows.h>
 
+#include "Payroll.h"
 #include "Employee.h"
 #include "PayrollUI.h"
-
-
-/* Load Employees */
-int loadEmployees(Employee_t employees[], int arrayLength);
-
-/* Get fields from csv */
-const char* getfield(char* line, int num);
-
-
-
-/* Create a new employee*/
-void newEmployee(char *name, Department_t dept, Rate_t rate);
-
-/* Changes employee's department */
-void changeDept(char *name, Department_t dept);
-
-/* Change employee's pay rate */
-void changeRate(char *name, Rate_t rate);
-
-/* Terminate or rehire employees */
-void setCurrentEmployee(char *name, bool b);
-
-/* Save current employees to file */
-void saveEmployeesToFile(Employee_t empArr[], int arrayLength);
-
-/* Processes wages for employees */
-void processWages(Employee_t empArr[], int arrayLength);
-//void processWages(); //TODO Reimplement
 
 int main(int argc, char* argv[])
 {
@@ -161,81 +134,6 @@ int main(int argc, char* argv[])
 
 
 
-/* Load employee record */
-int loadEmployees(Employee_t employees_p[], int arrayLength) {
-
-	printText("Loading employee records...\n");
-
-	// remember filenames
-	char *infile = "EmployeeList.csv";
-
-	// open input file
-	FILE* inptr = fopen(infile, "r");
-	if (inptr == NULL)
-	{
-		/* Create message string */
-		char *message = "Could not open ";
-		char *messageFull = malloc(strlen(message) + 1 + strlen(infile) + "...\n");
-		strcpy(messageFull, message);
-		strcat(messageFull, infile);
-		strcat(messageFull, "...\n");
-
-		printText(messageFull);
-
-		printText("Creating File...\n");
-		Sleep(2000);
-
-		inptr = fopen(infile, "w");
-
-		printText("File Created...\n");
-
-		// free memory
-		free(messageFull);
-	}
-	else {
-		printText("Employee records loaded...\n");
-	}
-
-	char line[50];
-	arrayLength = 0;
-
-	while (fgets(line, 50, inptr))
-	{
-		char* tmp = _strdup(line);
-		//if (employee_p[count] != NULL) {
-		strcpy(employees_p[arrayLength].name, getfield(tmp, 1));
-		employees_p[arrayLength].dept = atoi(getfield(_strdup(line), 2));
-		employees_p[arrayLength].rate = atoi(getfield(_strdup(line), 3));
-		employees_p[arrayLength].currentEmployee = atoi(getfield(_strdup(line), 4));
-		//printf(employees_p[count].name);
-
-		arrayLength++;
-		//printf("Field 3 would be %s\n", getfield(tmp, 1));
-		//}
-
-		// NOTE strtok clobbers tmp
-		free(tmp);
-	}
-	//printf("Test");
-	// close infile
-	fclose(inptr);
-
-	return arrayLength;
-}
-
-const char* getfield(char* line, int num)
-{
-
-	const char* tok;
-	for (tok = strtok(line, ",");
-		tok && *tok;
-		tok = strtok(NULL, ",\n"))
-	{
-		if (!--num)
-			return tok;
-	}
-	return NULL;
-}
 
 
 /* Processes wages for employees and save to file */
