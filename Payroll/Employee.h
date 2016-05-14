@@ -9,6 +9,11 @@
 * Header for creation of Employee Data type
 */
 
+#ifndef __Employee_h__
+	#define __Employee_h__
+
+
+
 #include <stdbool.h>
 
 /* Declare enums */
@@ -33,3 +38,5 @@ typedef struct {
 	bool currentEmployee;
 
 } Employee_t;
+
+#endif /* __Employee_h_ */
