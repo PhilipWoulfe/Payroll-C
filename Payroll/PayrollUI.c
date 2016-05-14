@@ -19,6 +19,9 @@
 
 /* Displays the header for the program */
 void displayHeader(void) {
+	
+	clearScreen();
+
 	printf("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	printf("  *          _      _   _____   _     ___                                         *\n");
 	printf("  *         | |    | | |  _  | | |   |  _|                                        *\n");

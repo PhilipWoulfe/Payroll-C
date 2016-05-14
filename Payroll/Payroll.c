@@ -47,7 +47,6 @@ int main(int argc, char* argv[])
 	// Resize command window
 	system("MODE 85,50");
 
-	clearScreen();
 	displayHeader();
 	arrayLength = loadEmployees(employees, arrayLength);
 	/*arrayLength = &i;

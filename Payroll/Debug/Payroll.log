@@ -1,11 +1,16 @@
-﻿Build started 14-May-16 11:44:38.
+﻿Build started 14-May-16 11:55:15.
      1>Project "C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Payroll\Payroll.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Employee.c
-         Employee.c
-     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\employee.c(22): warning C4013: 'printText' undefined; assuming extern returning int
-     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\employee.c(33): warning C4047: 'function' : 'size_t' differs in levels of indirection from 'char [5]'
-     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\employee.c(33): warning C4024: 'malloc' : different types for formal and actual parameter 1
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Payroll.c PayrollUI.c
+         PayrollUI.c
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payrollui.c(152): warning C4013: 'getch' undefined; assuming extern returning int
+         Payroll.c
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(66): warning C4013: 'getch' undefined; assuming extern returning int
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(139): warning C4029: declared formal parameter list different from definition
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(210): warning C4047: 'function' : 'size_t' differs in levels of indirection from 'char [5]'
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(210): warning C4024: 'malloc' : different types for formal and actual parameter 1
+     1>c:\users\phil\documents\visual studio 2013\projects\payroll\payroll\payroll.c(224): warning C4098: 'processWages' : 'void' function returning a value
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Debug\Payroll.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Debug\Payroll.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Phil\documents\visual studio 2013\Projects\Payroll\Debug\Payroll.lib" /MACHINE:X86 Debug\Employee.obj
          Debug\Payroll.obj
@@ -15,4 +20,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.92
+Time Elapsed 00:00:01.37
