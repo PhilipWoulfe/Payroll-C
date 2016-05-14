@@ -22,28 +22,8 @@
 #include <time.h>
 #include <windows.h>
 
-/* Declare enums */
-typedef enum {
-	HR = 1,
-	IT = 2,
-	PRODUCTION = 3,
-	SALES_AND_MARKETING = 4
-} Department_t;
+#include "Employee.h"
 
-typedef enum {
-	ASSOCIATE = 1,
-	SENIOR = 2,
-	MANAGER = 3,
-} Rate_t;
-
-/* create employe data type */
-typedef struct {
-	char name[50];
-	Department_t dept;
-	Rate_t rate;
-	bool currentEmployee;
-
-} Employee_t;
 
 /* Display Header */
 void displayHeader(void);
