@@ -50,7 +50,7 @@ void clearScreen(void) {
 void printText(char *text) {
 
 	// Formatting
-	printf("  ");
+	printf("\n  ");
 
 	for (int i = 0; text[i] != '\0'; i++) {
 		printf("%c", text[i]);
@@ -67,14 +67,14 @@ void displayMenu(void) {
 	clearScreen();
 	displayHeader();
 
-	printText("Welcome to the Wolf Accounting Payroll System.\n\n");
-	printText("1. View Employees\n");
-	printText("2. Add Employee\n");
-	printText("3. Change Employee Employment status\n");
-	printText("4. Change Employee Department\n");
-	printText("5. Change Employee Pay Rate\n");
-	printText("6. Calculate Payroll for this week\n");
-	printText("7. Quit\n\n");
+	printText("Welcome to the Wolf Accounting Payroll System.\n");
+	printText("1. View Employees");
+	printText("2. Add Employee");
+	printText("3. Change Employee Employment status");
+	printText("4. Change Employee Department");
+	printText("5. Change Employee Pay Rate");
+	printText("6. Calculate Payroll for this week");
+	printText("7. Quit\n");
 	printText("Please select an option from the menu [1-7]: ");
 
 }
@@ -148,7 +148,7 @@ void displayEmployees(Employee_t employees[], int arrayLength) {
 
 	}
 
-	printf("  |____|________________________________________|_____________________|___________|\n\n");
+	printf("  |____|________________________________________|_____________________|___________|\n");
 	printText(" Press any key to continue...");
 	getch();
 }

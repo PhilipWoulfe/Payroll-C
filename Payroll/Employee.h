@@ -34,14 +34,11 @@ typedef struct {
 	Department_t dept;
 	Rate_t rate;
 	bool currentEmployee;
+	float weeksWages;
 
 } Employee_t;
 
-/* Load Employees */
-int loadEmployees(Employee_t employees[], int arrayLength);
 
-/* Get fields from csv */
-const char* getfield(char* line, int num);
 
 /* Create a new employee*/
 void newEmployee(char *name, Department_t dept, Rate_t rate);
@@ -55,7 +52,5 @@ void changeRate(char *name, Rate_t rate);
 /* Terminate or rehire employees */
 void setCurrentEmployee(char *name, bool b);
 
-/* Save current employees to file */
-void saveEmployeesToFile(Employee_t empArr[], int arrayLength);
 
 #endif /* __Employee_h_ */
